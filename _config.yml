@@ -1,68 +1,37 @@
-# Site
-title:              Mccarty
-bio:                'Our aim is the stars and the sea.'
-description:        "Welcome to my GitHub.I will share the problems and knowledge i have encountered in my work and study here.I hope that we can keep our longing for life,continue to learn and improve ourselves,and work together.If the article is useful to you,thank you for recongnition of me.If you find any problems,please contact me.I will find out the reasons and make modifications.Look forward to working with you to make a difference."
-locale:             en_US
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+title: Hello, world! I'm David Freeman
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+permalink: ':title/'
+baseurl: "/flexible-jekyll" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+site-twitter: #if your site has a twitter account, enter it here
 
-# Comments
-disqus_shortname:   default
+# Author Settings
+author: David Freeman # add your name
+author-img: david-freeman.jpg # add your photo
+about-author: I am a web developer focusing on front-end development. Always hungry to keep learning. # add description
+social-twitter: # add your Twitter handle
+social-facebook: # add your Facebook handle
+social-github: artemsheludko # add your Github handle
+social-linkedin: # add your Linkedin handle
+social-email: # add your Email address
 
-# Social
-analytics-id:       "default"
-twitter:            default
-facebook:           default
-instagram:          default
-github:             default
+# Disqus
+discus-identifier: mr-brown # add your discus identifier
 
-# personal
-location:           Los Angeles, CA
-phone:              310-318-5555
-email:              mccarty_zzz2017@163.com # change this to your email to receive free emails for your contact submissions via Slapform.com
+# Tracker
+analytics: # Google Analytics
 
-# Other
-background_image:   /images/bg.jpg
-# Tip: The color palette and other styles can be configured in /_sass/lib/_vars.scss
-slapform_thankyou_page: /thank-you
-
-defaults:
-- scope:
-    path: ''
-    type: posts
-  values:
-    permalink: "/blog/:title/"
-    layout: post
-    author:
-
-# MCCARTY
-permalink:          /blog/:title/
-markdown:           kramdown
-highlighter:        rouge
-kramdown:
-  auto_ids:         true
-  footnote_nr:      1
-  entity_output:    as_char
-  toc_levels:       1..6
-  enable_coderay:   false
-mathjax:            true
-sass:
-  sass_dir:         _sass
-  style:            compressed
-
-# Gems
-gems:
-  - jekyll-mentions
+# Build Settings
+markdown: kramdown
+plugins:
   - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-gist
   - jekyll-paginate
+  - jemoji
 
-paginate: 6
-paginate_path: "/blog/page:num/"
+paginate: 8
+paginate_path: "/page/:num"
 
-jekyll-mentions:
-    base_url: https://github.com
-
-# Exclude list
-exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile, old]
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
