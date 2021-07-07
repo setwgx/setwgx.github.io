@@ -1,6 +1,6 @@
 ## Template used by mccartyzzz
 
-![](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/promo-img.jpg?raw=true)
+<img src="https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/promo-img.jpg" width="200" height="200" /></br>
 
 ## Demo
 
