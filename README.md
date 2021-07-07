@@ -1,6 +1,6 @@
 ## Template used by mccartyzzz
 
-<img src="https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/promo-img.jpg" width="200" height="200" /></br>
+<img src="https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/promo-img.jpg" width="300" height="200" /></br>
 
 ## Demo
 
