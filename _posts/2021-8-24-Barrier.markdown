@@ -1,0 +1,72 @@
+---
+layout: post
+title: Barrier
+date: 2021-08-24 20:03:17 +0300
+description: Share mouse and keyboard between two devices. # Add post description (optional)
+img: /proj2/cover.png # Add image post (optional)
+tags: [Linux, Windows, Barrier] # add tag
+---
+
+## Preface
+For the need for multi-screen processing work for friends, for each device is configured with a set of mouse keyboard is cumbersome and take up space, some friends use split screen processing or shared keyboard are good choices.
+
+KVM stands for Keyboard, Monitor, Mouse. The core idea of KVM technology is to achieve centralized system and network management through appropriate keyboard, mouse, and monitor configurations, which can be implemented through hardware or software. Those who do not have the need to configure hardware can consider implementing software switching.
+
+Here are a few software that you can try to share your mouse and keyboard that will make it easier to work with multiple screens. I will mainly detail the process of the software I am using for the specific method.
+
+Synergy allows multiple computers to share the mouse and keyboard, originally open source and free, from version 1.5 to charge, but still open source, you can pay to download the installation package or free download the source code to compile their own, but the compilation is very troublesome, to install a lot of software.
+
+ShareMouse is a software that can do the same job, but unfortunately ShareMouse only supports MAC and Windows operating systems and not other operating systems.
+
+Here is the main description of the software Barrier, which can achieve the sharing of mouse and keyboard between different devices, to introduce the installation and use of this software and the configuration process.
+
+## Let's get started
+
+![photo1]({{site.baseurl}}/assets/img/proj2/ubuntuBarrier.png)
+
+Barrier Software for Ubuntu 20.04 OS
+
+![photo2]({{site.baseurl}}/assets/img/proj2/winBarrier.png)
+
+Barrier software for windows 10 operating system
+
+You can get the software for windows from here.
+
+[Link](https://pan.baidu.com/s/1Z8LIRAfg8n75ULdUZH7emg)
+code：e0bx
+
+Both sides of the computer need to install this software, the use of a device as the master device and another as a slave device work, here using windows as the master device, linux as the slave device configuration.
+
+The installation of the software under linux is very simple, just click install, the installation under windows is the same as the normal software installation, always next step to complete the installation.
+
+![photo3]({{site.baseurl}}/assets/img/proj2/1.png)
+
+After installation there will be options for us to choose the master and slave devices, here we need to configure them separately, let's move on to the next page.
+
+## Main equipment configuration
+
+![photo4]({{site.baseurl}}/assets/img/proj2/2.png)
+
+Under the main device, select the Server option, no need to configure the file yourself, just select the interactive configuration directly, and then click Set Server.
+
+![photo5]({{site.baseurl}}/assets/img/proj2/3.png)
+
+We can configure the configuration of our real computer by dragging and dropping, as shown in the picture, the left side is my linux device, the right side is my local computer, here we need to name the device, but the name is not haphazard, it needs to match with the screen name of our own device.
+
+![photo6]({{site.baseurl}}/assets/img/proj2/4.png)
+
+Like this one, this is my own naming of the master device. After the configuration is complete the master device is even finished, we click Start to get the master device up and running, the default port is 24800.
+
+## From equipment configuration.
+
+![photo7]({{site.baseurl}}/assets/img/proj2/5.png)
+
+The slave device is much easier to configure, as long as we select the client below, make sure the screen name is the same as the one configured in the master device, and enter the correct server IP.
+
+Be aware that the server IP is not the bold IP address above the server, but the IP address in ipconfig entered at the command line, and most importantly the two devices must be on the same LAN to be connected.
+
+A successful connection will result in the following message:
+
+![photo8]({{site.baseurl}}/assets/img/proj2/6.png)
+
+This way we achieve different devices sharing the same mouse and keyboard, which will be more convenient for our daily use.
