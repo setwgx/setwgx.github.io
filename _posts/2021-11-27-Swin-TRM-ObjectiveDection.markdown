@@ -181,10 +181,10 @@ Now that apex is also installed, let's carry out the experimental results of obj
 
 Finally, there is a result of object detection related to the model. Here is the picture I downloaded from the Internet. After setting the corresponding path, you can view the result.
 
-原文地址：[https://arxiv.org/abs/2103.14030](https://arxiv.org/abs/2103.14030)
+address：[https://arxiv.org/abs/2103.14030](https://arxiv.org/abs/2103.14030)
 
-项目地址：[https://github.com/SwinTransformer/Swin-Transformer-Object-Detection](https://github.com/SwinTransformer/Swin-Transformer-Object-Detection)
+project address：[https://github.com/SwinTransformer/Swin-Transformer-Object-Detection](https://github.com/SwinTransformer/Swin-Transformer-Object-Detection)
 
-mmcv文档：[https://mmcv.readthedocs.io/en/latest/build.html](https://mmcv.readthedocs.io/en/latest/build.html)
+mmcv documentation：[https://mmcv.readthedocs.io/en/latest/build.html](https://mmcv.readthedocs.io/en/latest/build.html)
 
 apex：[https://github.com/NVIDIA/apex](https://github.com/NVIDIA/apex)
