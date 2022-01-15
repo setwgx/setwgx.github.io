@@ -172,7 +172,7 @@ Apex is a deep learning acceleration library that can achieve hybrid precision t
 git clone https://github.com/NVIDIA/apex
 cd apex-master
 #Compile and install
-pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
+pip install -v --no-cache-dir ./
 ```
 
 Now that apex is also installed, let's carry out the experimental results of object detection.
