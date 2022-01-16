@@ -11,7 +11,7 @@ tags: [Ubuntu, Server, Anaconda3, NVIDIA-DRIVER, CUDA, cuDNN] # add tag
 
 I recently purchased a new server, and it is necessary to configure the server to facilitate our experiments. This article records the entire process of installing the ubuntu server version from a blank server. For your reference only.
 
-Before we start the tutorial, we need to explain a few things. Since we are buying a Supermicro X11 motherboard, there are a few things that need to be explained in advance. There are two things to note:</font color="red">1.When installing the ubuntu server version, remember to change the domestic source at the download source (it is recommended to use Tsinghua source), and use a network cable that does not require authentication, otherwise the installation will report an error! ! !</font></font color="red">2.The server uses the F11 key to enter the boot disk or the BIOS configuration interface.</font>
+Before we start the tutorial, we need to explain a few things. Since we are buying a Supermicro X11 motherboard, there are a few things that need to be explained in advance. There are two things to note:<font color="red">1.When installing the ubuntu server version, remember to change the domestic source at the download source (it is recommended to use Tsinghua source), and use a network cable that does not require authentication, otherwise the installation will report an error! ! !</font><font color="red">2.The server uses the F11 key to enter the boot disk or the BIOS configuration interface.</font>
 
 (This document is only for the installation of the ubuntu-server version)
 
