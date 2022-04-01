@@ -1,32 +1,32 @@
 ---
 layout: post
-title: Nodejs+Express+MySQL :->(sudoku games)
+title: Nodejs+Express+MySQL数独游戏
 date: 2020-07-01 20:51:23 +0300
-description: Nodejs and Express and mysql technology based installation and use as well as database processing. # Add post description (optional)
+description: 基于Nodejs、Express和mysql技术的安装和使用以及数据库处理。 # Add post description (optional)
 img: /proj1/pic0.png # Add image post (optional)
 tags: [Nodejs, Express, MySQL] # add tag
 ---
 
-## Nodejs download and install
-We can download it directly from Nodejs's official website [how to install nodejs](https://nodejs.org/en/download/).
+## Nodejs 下载安装
+我们可以直接从Nodejs官网下载 [how to install nodejs](https://nodejs.org/en/download/).
 
 ![photo1]({{site.baseurl}}/assets/img/proj1/pic1.png){:width="80%"}
 
-Download the corresponding version according to the computer you use, and then install it.Nodejs installation tutorial on the Internet is also a lot of, you can refer to.
+根据你使用的电脑下载对应的版本，然后安装。Nodejs的安装教程，网上也有很多，可以参考。
 
-After installation, open the DOS command, enter the installation directory of Nodejs, and use Node-V to view the currently downloaded version.
+安装完成后打开DOS命令，进入Nodejs的安装目录，使用Node-V查看当前下载的版本。
 
 ![photo2]({{site.baseurl}}/assets/img/proj1/pic2.png)
 
 
-## Express framework installation and simple server setup
-First create a folder, then use the DOS command to enter the directory.
+## Express框架安装和简单服务器配置
+首先创建一个文件夹，然后使用DOS命令进入该目录。
 
-Let's first install the global Express. Please note that the global express command is different before and after the 4.x version.The previous version installation instruction is [ npm install express -g ],The post - version installation instruction is [ npm install -g express-generator ].
+我们先安装全局 Express。 请注意，4.x版本前后全局express命令不同。上一版本安装说明为[ npm install express -g ]，后版本安装说明为[ npm install -g express-generator ]。
 
 ![photo3]({{site.baseurl}}/assets/img/proj1/pic3.png)
 
-We then proceeded to set up the Express server, where we created some folders and projects and entered the following instructions into the DOS command.
+然后我们继续设置 Express 服务器，我们在其中创建了一些文件夹和项目，并在 DOS 命令中输入了以下说明。
 ```
 md NodeJSProject
 cd NodeJSProject
@@ -34,55 +34,54 @@ md expressdemo
 cd expressdemo
 express app
 ```
-App is the name of the Express project, which can be customized.
+App是Express项目的名称，可以自定义。
 
-Waiting for the installation, the terminal will have two prompts as follows after completion.
+等待安装，完成后终端会有如下两个提示。
 
 ![photo4]({{site.baseurl}}/assets/img/proj1/pic4.png)
 
-We follow the terminal prompt and execute the following instructions.
+我们按照终端提示执行以下指令。
 ```
 cd app
 npm install
 ```
-After finishing, we can see the files inside the app and the file structure.
+完成后，我们可以看到app里面的文件和文件结构。
 
 ![photo21]({{site.baseurl}}/assets/img/proj1/pic21.png){:width="80%"}
 
-At this time, we have completed the setup and can start the server for viewing. Enter the following instructions in the directory of app to start the server.
+至此，我们已经完成设置，可以启动服务器查看了。 在app目录下输入以下指令启动服务器。
 ```
 npm start
 ```
 ![photo5]({{site.baseurl}}/assets/img/proj1/pic5.png)
 
-This usually means the startup is successful and we can view it in the browser,browser access [http://localhost:3000/](http://localhost:3000/).
+这通常表示启动成功，我们可以在浏览器中查看，浏览器访问 [http://localhost:3000/](http://localhost:3000/).
 
 ![photo6]({{site.baseurl}}/assets/img/proj1/pic6.png){:width="80%"}
 
-Successfully launched, this page can be interpreted as Hello word！
+启动成功，该页面可以解读为Hello word！
 
-Here's an explanation of the file structure of the Express project：
+这里解释一下Express项目的文件结构：
 
-1.bin:-> Used to start the server application.
+1.bin :-> 用于启动服务器应用程序。
 
-2.node_modules:-> Store some dependency modules.
+2.node_modules :-> 存储一些依赖模块。
+
+3.public :-> 存储静态资源。
+
+4.routes :-> 主要用于确定如何响应来自特定端点客户端的请求，包含一个URI（一个标识和定位任何资源的字符串）和一个特定的HTTP请求方法（例如：POST、AXIOS等）。
+
+5.views :-> 存储一些模板文件，您可以自定义这些模板文件来封装一些组件。
+
+6.app.js :-> 文件和服务器启动项。
 
 
-3.public:-> Storing static resources.
-
-4.routes:->Mainly used to determine how to respond to a request from a particular endpoint client,Contains a URI(a string that identifies and locates any resource) and a specific HTTP request method (for example: POST, AXIOS, and so on).
-
-5.views:-> Store some template files that you can customize to encapsulate some components.
-
-6.app.js:-> File and server startup entry.
-
-
-## Mysql download and install
-I believe you are familiar with Mysql, and you have a lot of people using it, there are a lot of online tutorials, so I won't go into details here.Directly on mysql's official website [MySQL](https://dev.mysql.com/downloads/mysql/).You can download it and select the version based on your computer.
+## Mysql下载安装
+相信大家对Mysql很熟悉，用的人也很多，网上教程也很多，这里就不赘述了。直接上mysql官网 [MySQL](https://dev.mysql.com/downloads/mysql/).您可以下载它并根据您的计算机选择版本。
 
 ![photo7]({{site.baseurl}}/assets/img/proj1/pic7.png){:width="80%"}
 
-After completing according to the prompt, enter the following command line in the DOS command to view the current database corresponding information.
+根据提示完成后，在DOS命令中输入如下命令行，查看当前数据库对应信息。
 ```
 mysql -V
 or
@@ -90,34 +89,34 @@ mysql --version
 ```
 ![photo8]({{site.baseurl}}/assets/img/proj1/pic8.png)
 
-Database structure.
+数据库结构。
 
 ![photo9]({{site.baseurl}}/assets/img/proj1/pic9.png)
 
-We create a data number called db_sudoku and create a table with the form name score and five column names [ username,timer,checktime,score,id ],Their attributes are [ char(10),char(10),int(3),int(3),int(3) ].
+我们创建一个名为 db_sudoku 的数据编号，并创建一个表格名称为 score 和五个列名称的表 [ username,timer,checktime,score,id ],它们的属性是 [ char(10),char(10),int(3),int(3),int(3) ].
 
 ![photo10]({{site.baseurl}}/assets/img/proj1/pic10.png)
 
-Insert the following two columns of data.
+插入以下两列数据。
 
 ![photo11]({{site.baseurl}}/assets/img/proj1/pic11.png)
 
 
-## Continue with the project
-We go back to the root directory we created, we install the mysql driver, go back to the root directory, and enter the following instructions.
+## 继续项目
+我们回到我们创建的根目录，我们安装mysql驱动，回到根目录，输入以下指令。
 ```
 npm install mysql
 ```
 ![photo12]({{site.baseurl}}/assets/img/proj1/pic12.png)
 
-At this point our environment and project is basically established, the directory file structure at this point.
+至此我们的环境和项目基本建立，目录文件结构至此。
 
 ![photo13]({{site.baseurl}}/assets/img/proj1/pic13.png)
 
-We can start writing files and scripts to complete the project.
+我们可以开始编写文件和脚本来完成项目。
 
 
-### Create index.html in the root directory
+### 在根目录下创建index.html
 ```
 <!DOCTYPE html>
 <html>
@@ -185,7 +184,7 @@ We can start writing files and scripts to complete the project.
 
 </html>
 ```
-### Modify NodeJSProject/expressdemo/app/routes/index.js
+### 修改NodeJSProject/expressdemo/app/routes/index.js
 ```
 const express = require('express');
 const router = express.Router();
@@ -262,7 +261,7 @@ var server = app.listen(3001, function () {
   console.log("Access to the port %s", port);
 })
 ```
-### Under the NodeJSProject/expressdemo/app/ create a db. Js
+### 在NodeJSProject/expressdemo/app/目录下创建一个db.js
 ```
 // Creating a database connection
 const mysql = require("mysql");
@@ -291,7 +290,7 @@ var query = (sql, params, callback) => {
 
 exports.query = query;
 ```
-### Modify app.js
+### 修改app.js
 ```
 app.all("*", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -302,43 +301,43 @@ app.all("*", function (req, res, next) {
   else next();
 });
 ```
-The above code should be placed under var app = Express () and above app.use('/', indexRouter)
+上面的代码应该放在 var app = Express() 和 app.use('/', indexRouter) 上面
 
 ![photo15]({{site.baseurl}}/assets/img/proj1/pic15.png){:width="50%"}
 
-### TEST
-Now let's see how our front end looks.
+### 测试
+现在让我们看看我们的前端是什么样子的。
 
 ![photo14]({{site.baseurl}}/assets/img/proj1/pic14.png){:width="50%"}
 
-Now that we've basically finished our database interaction, we can test it by entering the APP directory in the DOS command and using the instruction NPM Start to start the server.And then we go to localhost, and we see the table content that we designed earlier, two pieces of data.
+现在我们的数据库交互基本完成了，我们可以通过DOS命令进入APP目录，使用指令npm start启动服务器进行测试。然后我们去localhost，就可以看到我们创建的表格内容了 之前设计的，两条数据。
 
 ![photo16]({{site.baseurl}}/assets/img/proj1/pic16.png){:width="50%"}
 
-Now we open the front end, which can see the contents of the database now that Express has been started.
+现在我们打开前端，可以看到Express已经启动的数据库的内容。
 
 ![photo22]({{site.baseurl}}/assets/img/proj1/pic22.png){:width="50%"}
 
-Reading is ok, so let's see how about writing to the database, so let's enter the following data.
+读取就可以了，接下来看看写入数据库怎么样，所以我们输入如下数据。
 
 ![photo17]({{site.baseurl}}/assets/img/proj1/pic17.png){:width="50%"}
 
-Indicates successful submission.
+表示提交成功。
 
 ![photo18]({{site.baseurl}}/assets/img/proj1/pic18.png){:width="50%"}
 
-Then we go back to our home page and find that the data is already on the front end.
+然后我们回到我们的主页，发现数据已经在前端了。
 
 ![photo19]({{site.baseurl}}/assets/img/proj1/pic19.png){:width="50%"}
 
-It's in the database already.
+它已经在数据库中了。
 
 ![photo20]({{site.baseurl}}/assets/img/proj1/pic20.png){:width="50%"}
 
 
-### CONCLUSION
-This is a very simple Nodejs + Express + mysql small application. At that time, I was doing this because I had a project, and I seldom used JS language, so I was relatively weak in this aspect. I found a lot of materials and spent a lot of time to figure this out.So I'm going to make a note here, and I'm going to share it with you.
+### 结束语
+这是一个非常简单的 Nodejs + Express + mysql 小应用程序。 那时我在做这个，因为我有一个项目，而且我很少使用 JS 语言，所以我在这方面比较薄弱。 找了很多资料，也花了很多时间才弄明白。所以在这里做个笔记，和大家分享一下。
 
-You can fork this project in my warehouse. I will upload it to my warehouse later. Thank you!
+你可以在我的仓库中 fork 这个项目。 我稍后会上传到我的仓库。 谢谢！
 
-[Project link](https://github.com/mccartyzzz/Nodejs-and-Express-and-mysql-based-front-and-back-end-interactions.git)
+[https://github.com/setwgx/Nodejs-and-Express-and-mysql-based-front-and-back-end-interactions](https://github.com/setwgx/Nodejs-and-Express-and-mysql-based-front-and-back-end-interactions.git)

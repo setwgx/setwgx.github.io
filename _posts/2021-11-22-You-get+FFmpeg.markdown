@@ -1,100 +1,100 @@
 ---
 layout: post
-title: You-get+FFmpeg :->(download video)
-date: 2021-11-21 11:06:58 +0300
-description: Ways to download web videos. # Add post description (optional)
+title: You-get+FFmpeg下载网络视频
+date: 2021-11-22 11:06:58 +0300
+description: 下载网络视频的方法。 # Add post description (optional)
 img: /you-get+ffmpeg/0cover.png # Add image post (optional)
 tags: [Windows, You-get, ffmpeg] # add tag
 ---
 
-## Preface
-I have always found interesting videos on many video platforms, hoping to save them from the platform and watch them offline, but there are still many limitations in the caching or downloading methods provided by the platform, which prevents us from actually saving them locally. So I found through searching that a python library like you-get can help us download videos on webpages, and actually save the file downloads in our local. It is worth noting that you-get is only a downloader rather than a cracker, You can also download video content that includes members, but you need to have a member account.
+## 序
+一直在很多视频平台上发现有趣的视频，希望能从平台上保存下来离线观看，但是平台提供的缓存或者下载方式还是有很多限制，让我们无法真正保存到本地。 所以我通过搜索发现，像you-get这样的python库可以帮助我们下载网页上的视频，并将下载的文件实际保存在我们的本地。 值得注意的是，you-get 只是一个下载器而不是破解器，您还可以下载包含会员的视频内容，但您需要有会员帐户。
 
-FFmpeg is an open source computer program that can be used to record, convert digital audio and video, and convert them into streams. It provides a complete solution for recording, converting, and streaming audio and video, including a very advanced audio/video codec library libavcodec. In order to ensure high portability and codec quality, many codes in libavcodec are developed from scratch. FFmpeg is developed under the Linux platform, but it can also be compiled and run in other operating system environments, including Windows, Mac OS X, and so on.
+FFmpeg 是一个开源计算机程序，可用于录制、转换数字音频和视频，并将其转换为流。 它为录制、转换和流式传输音频和视频提供了完整的解决方案，包括一个非常先进的音频/视频编解码器库 libavcodec。 为了保证高可移植性和编解码质量，libavcodec 中的许多代码都是从零开始开发的。 FFmpeg是在Linux平台下开发的，但也可以在其他操作系统环境下编译运行，包括Windows、Mac OS X等。
 
-My computer environment is windows10, I use python3.8 version, and my browser is Firefox. The downloading method for non-members and members is the same, but downloading for members is a bit more troublesome. Here, I will talk about the simple method first and then the downloading method of member videos.
+我的电脑环境是windows10，我用的是python3.8版本，浏览器是Firefox。 非会员和会员的下载方法是一样的，但是会员的下载要麻烦一些。 这里先讲简单的方法，再讲会员视频的下载方法。
 
-## Let's get started
+## 开始
 
-#### Basic download method for non-members
+#### 非会员基本下载方法
 
 ![photo1]({{site.baseurl}}/assets/img/you-get+ffmpeg/1.png){:width="80%"}
 
-Here I use Anaconda to configure a python3.8 virtual environment, named swin, install our python library you-get through pip, here I have installed it, so it shows that it has been installed.
+这里我使用Anaconda配置了一个python3.8的虚拟环境，命名为swin，通过pip安装我们的python库you-get，这里我已经安装好了，所以说明已经安装了。
 
 ![photo2]({{site.baseurl}}/assets/img/you-get+ffmpeg/2.png){:width="80%"}
 
-We are here to test with a random video from bilibili. Of course, this is a non-member restricted video. We found the URL of this video.
+我们在这里使用来自 bilibili 的随机视频进行测试。 当然，这是一个非会员限制的视频。 我们找到了这个视频的网址。
 
 ![photo3]({{site.baseurl}}/assets/img/you-get+ffmpeg/3.png){:width="80%"}
 
-The download location of the file is the current path location, so we first switch the path to the location where we want the file to be downloaded, and then use the command to download the video we want to download, the format is "you-get url". We can use the -i parameter to display the available resolution of the video first, as shown in the figure above.
+文件的下载位置是当前路径位置，所以我们先把路径切换到我们要下载文件的位置，然后使用命令下载我们要下载的视频，格式为"you-get url"。 我们可以先使用 "-i" 参数来显示视频的可用分辨率，如上图所示。
 
 ![photo4]({{site.baseurl}}/assets/img/you-get+ffmpeg/4.png){:width="80%"}
 
-The next step is to specify the resolution we want to download through the parameter -format, so that we can download the video with the specified resolution.
+接下来就是通过参数 "-format" 指定我们要下载的分辨率，这样我们就可以下载指定分辨率的视频了。
 
 ![photo5]({{site.baseurl}}/assets/img/you-get+ffmpeg/5.png){:width="80%"}
 
-Of course, if you don’t care about the clarity or have no choice, you can directly select "you-get url" to complete the download.
+当然，如果你不关心清晰度或者没有选择，可以直接选择 "you-get url" 完成下载。
 
 ![photo6]({{site.baseurl}}/assets/img/you-get+ffmpeg/6.png){:width="80%"}
 
-This is a way of downloading files for non-members. At that time, it was just a video downloader rather than a cracker. This phenomenon would occur when downloading member videos.
+这是为非会员下载文件的一种方式。 当时，它只是一个视频下载器，而不是破解器。 下载会员视频时会出现这种现象。
 
-That's right, it is an error, telling us that this is a member's video and cannot be downloaded.
+没错，就是报错，告诉我们这是会员的视频，不能下载。
 
-For members' videos, we need some other auxiliary software and a member account of the video platform.
+对于会员的视频，我们需要一些其他的辅助软件和视频平台的会员账号。
 
-#### Basic download method for members
+#### 会员基本下载方法
 ![photo7]({{site.baseurl}}/assets/img/you-get+ffmpeg/7.png){:width="80%"}
 
-We search for ffmpeg, enter the official website of the software, choose our platform to download the software, my operating system is windows10.
+我们搜索ffmpeg，进入软件官网，选择我们的平台下载软件，我的操作系统是windows10。
 
 ![photo8]({{site.baseurl}}/assets/img/you-get+ffmpeg/8.png){:width="80%"}
 
-Select the ffmpeg file you want to download, the software pointed by the arrow.
+选择你要下载的ffmpeg文件，箭头所指的软件。
 
 ![photo9]({{site.baseurl}}/assets/img/you-get+ffmpeg/9.png){:width="80%"}
 
-Download the full version on github. After the download is complete, we don't need to install it, just unzip it and it can be used, but we need to add the path of the bin in the file to the environment variable Path.
+在 github 上下载完整版。 下载完成后，我们不需要安装，解压即可使用，但需要将文件中bin的路径添加到环境变量Path中。
 
 ![photo10]({{site.baseurl}}/assets/img/you-get+ffmpeg/10.png){:width="80%"}
 
-The method of adding environment variables will not be repeated, just add the directory where bin in the file is located according to the steps.
+添加环境变量的方法不再赘述，按照步骤添加文件中bin所在的目录即可。
 
 ![photo11]({{site.baseurl}}/assets/img/you-get+ffmpeg/11.png){:width="80%"}
 
-We enter the DOS command line and enter ffmpeg to try to see if the addition is successful. If these contents appear, it means that the environment variables of ffmpeg have been added successfully.
+我们进入DOS命令行，输入ffmpeg试试看是否添加成功。 如果出现这些内容，说明ffmpeg的环境变量已经添加成功。
 
 ![photo12]({{site.baseurl}}/assets/img/you-get+ffmpeg/12.png){:width="80%"}
 
-Next, let's try to download the content of the member. Because we need to use cookies, and the cookie format of Firefox meets the format requirements in you-get, we recommend using only Firefox for this operation.
+接下来，让我们尝试下载会员的内容。 因为我们需要使用cookies，而Firefox的cookie格式符合you-get中的格式要求，所以我们建议只使用Firefox进行此操作。
 
-Go to our video platform webpage and log in to our member account.
+前往我们的视频平台网页并登录我们的会员账户。
 
 ![photo13]({{site.baseurl}}/assets/img/you-get+ffmpeg/13.png){:width="80%"}
 
-The default cookie of Firefox is stored in this directory, C:\Users\\[Username]\AppData\Roaming\Mozilla\Firefox\Profiles\brh0nlmh.default-release.
+Firefox 的默认 cookie 存放在该目录下, C:\Users\\[Username]\AppData\Roaming\Mozilla\Firefox\Profiles\brh0nlmh.default-release.
 
-Where [Username] is the username of your computer.
+这里 [Username] 是你的计算机的用户名。
 
 ![photo14]({{site.baseurl}}/assets/img/you-get+ffmpeg/14.png){:width="80%"}
 
-We see the cookies.sqlite file, which stores the cookie data recorded by the browser. We can copy this file to the desktop for convenient use.
+我们看到cookies.sqlite文件，里面存储了浏览器记录的cookie数据。 我们可以把这个文件复制到桌面，方便使用。
 
 ![photo15]({{site.baseurl}}/assets/img/you-get+ffmpeg/15.png){:width="80%"}
 
-Note: If you do not find AppData, remember to check the option to hide files, this is a hidden folder. Then go look for it.
+注意：如果没有找到AppData，记得勾选隐藏文件选项，这是一个隐藏文件夹。 然后去寻找它。
 
 ![photo16]({{site.baseurl}}/assets/img/you-get+ffmpeg/16.png){:width="80%"}
 
-Then enter our member video and get the URL of this member video.
+然后进入我们的会员视频，获取该会员视频的网址。
 
 ![photo17]({{site.baseurl}}/assets/img/you-get+ffmpeg/17.png){:width="80%"}
 
-The video download instruction is the same as that of non-members, you-get url -c cookie.sqlite. We can see that the member video can also be downloaded successfully.
+视频下载指令和非会员一样，"you-get url -c cookie.sqlite"。我们可以看到会员视频也可以下载成功了。
 
 ![photo18]({{site.baseurl}}/assets/img/you-get+ffmpeg/18.png){:width="80%"}
 
-Next, we can save our video content to our computer offline, without being restricted by the platform's cache or download mechanism.
+接下来，我们可以将视频内容离线保存到我们的电脑中，不受平台缓存或下载机制的限制。

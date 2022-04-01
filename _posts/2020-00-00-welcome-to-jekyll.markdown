@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Welcome to MyBlog!"
+title: "欢迎来到我的博客！"
 date: 2020-01-01 00:00:00 +0300
-description: This is the first blog. I will write my daily learning experience here as a record. If my experience is helpful to you, it will make me feel that doing this is very meaningful. Thank you for your support! # Add post description (optional)
+description: 这是我的第一篇GITHUB文章，我会在这里分享我的日常学习和经验。 如果我的文章也同样对你有所帮助，这会让我觉得我这样做很有意义。感谢您的陪伴与支持！ # Add post description (optional)
 img: /cover0.png# Add image post (optional)
 ---
 
-This is the first blog. I will write my daily learning experience here as a record. If my experience is helpful to you, it will make me feel that doing this is very meaningful. Thank you for your support!
+这是我的第一篇GITHUB文章，我会在这里分享我的日常学习和经验。 如果我的文章也同样对你有所帮助，这会让我觉得我这样做很有意义。感谢您的陪伴与支持！
