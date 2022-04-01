@@ -1,4 +1,4 @@
-## Template used by mccartyzzz
+## Template used by setwgx
 
 <img src="https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/promo-img.jpg" width="250" height="200" /></br>
 
