@@ -1,54 +1,54 @@
 ---
 layout: post
-title: Ubuntu Server Configuration
+title: 全新Ubuntu服务器配置
 date: 2022-01-14 21:07:31 +0300
-description: Record the installation process of the entire ubuntu server. # Add post description (optional)
+description: 记录整个ubuntu服务器的安装过程。 # Add post description (optional)
 img: /Ubuntu-linux-server/cover.png # Add image post (optional)
 tags: [Ubuntu, Server, Anaconda3, NVIDIA-DRIVER, CUDA, cuDNN] # add tag
 ---
 
-## Preface
+## 序
 
-I recently purchased a new server, and it is necessary to configure the server to facilitate our experiments. This article records the entire process of installing the ubuntu server version from a blank server. For your reference only.
+最近购买了一台新的服务器，为了方便我们的实验，需要对服务器进行配置。 本文记录了从空白服务器安装ubuntu服务器版本的全过程。 仅供您参考。
 
-Before we start the tutorial, we need to explain a few things. Since we are buying a Supermicro X11 motherboard, there are a few things that need to be explained in advance. There are two things to note:<font color="red">1.When installing the ubuntu server version, remember to change the domestic source at the download source (it is recommended to use Tsinghua source), and use a network cable that does not require authentication, otherwise the installation will report an error! ! !</font><font color="red">2.The server uses the F11 key to enter the boot disk or the BIOS configuration interface.</font>
+在开始本教程之前，我们需要解释一些事情。 由于我们购买的是 Supermicro X11 主板，并且所处环境比较特殊，所以有几件事需要提前说明。 有两点需要注意：<font color="red">1.安装ubuntu服务器版时，记得在下载源处更改国内源（建议使用清华源），并使用不需要认证的网线，否则安装会报错！</font><font color="red">2.服务器使用F11键进入启动盘或BIOS配置界面。</font>
 
-(This document is only for the installation of the ubuntu-server version)
+（本文档只针对ubuntu-server版本的安装）
 
 ## Anaconda
 
-##### installation
-In the non-GUI interface we use the command line to install Anaconda3.
+##### 安装
+在非GUI界面我们使用命令行安装Anaconda3。
 
-Since its server is abroad, it will be slower to download the program using the original Anaconda3 website. Use the domestic source to download, first find the mirror and select the required version.
+由于其服务器在国外，使用Anaconda3原网站下载程序会比较慢。 使用国内源下载，先找到镜像，选择需要的版本。
 
-Tsinghua source：[https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/](https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/)
+清华源：[https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/](https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/)
 
-Select the 64-bit version released in 2021.11
+选择2021.11发布的64位版本。
 
 Anaconda3-2021.11-Linux-x86_64.sh
 
 ![photo1]({{site.baseurl}}/assets/img/Ubuntu-linux-server/1.png){:width="70%"}
 
-sha256sum verification is performed on the downloaded file.(skipable)
+对下载的文件进行sha256sum验证。（可跳过）
 
 ![photo2]({{site.baseurl}}/assets/img/Ubuntu-linux-server/2.png){:width="70%"}
 
-The corresponding hash can be found in the Anaconda [documentation](https://docs.anaconda.com/anaconda/install/hashes/lin-3-64/).
+对应的hash可以在Anaconda [官方文档](https://docs.anaconda.com/anaconda/install/hashes/lin-3-64/)中找到.
 
 ![photo3]({{site.baseurl}}/assets/img/Ubuntu-linux-server/3.png){:width="70%"}
 
-As shown in sha256 verification，fedf9e340039557f7b5e8a8a86affa9d299f5e9820144bd7b92ae9f7ee08ac60
+如图sha256验证，fedf9e340039557f7b5e8a8a86affa9d299f5e9820144bd7b92ae9f7ee08ac60
 
-Start the installer, bash is followed by the downloaded file script, and the following interface will appear.
+启动安装程序，bash后面跟着下载的文件脚本，会出现如下界面。
 
 ![photo4]({{site.baseurl}}/assets/img/Ubuntu-linux-server/4.png){:width="70%"}
 
-Press ENTER to read the agreement, after reading it will prompt whether to accept the agreement.
+按ENTER键阅读协议，阅读后提示是否接受协议。
 
 ![photo5]({{site.baseurl}}/assets/img/Ubuntu-linux-server/5.png){:width="70%"}
 
-Enter **yes** to agree to the terms of the agreement
+输入**yes**同意协议条款
 
 ```shell
 Anaconda3 will now be installed into this location:
@@ -59,138 +59,138 @@ Anaconda3 will now be installed into this location:
 - Or specify a different location below
 ```
 
-After agreeing, an installation prompt will appear. You can choose to directly enter ENTER to install the default directory, or you can specify your own installation path. Generally, the default installation is enough. Wait for the prompt after the installation is completed.
+同意后会出现安装提示。 可以选择直接回车安装默认目录，也可以自己指定安装路径。 一般默认安装就够了。 安装完成后等待提示。
 
 ```shell
 Installation finished.
 Do you wish the installer to initialize Anaconda3
 by running conda init? [yes|no]
 ```
-After agreeing, the program will add the command-line tool conda to the system's PATH environment variable.
+同意后，程序会将命令行工具conda添加到系统的PATH环境变量中。
 
-To activate Anaconda, you can close and reopen your shell or reload the PATH environment variable by entering the following command in the current shell session:
+要激活 Anaconda，您可以通过在当前 shell 会话中输入以下命令来关闭并重新打开 shell 或重新加载 PATH 环境变量：
 
 ```shell
 source ~/.bashrc
 ```
 
-Anaconda3 is installed.
+Anaconda3 安装完毕。
 
-##### update
+##### 更新
 ```shell
 conda update –all
 ```
 
-You can update your Anaconda3 with instructions later.
+你可以在未来使用说明更新您的 Anaconda3。
 
-##### uninstallation
-If you want to uninstall Anaconda from your Ubuntu system, remove the Anaconda installation directory and other files created during installation:
+##### 卸载
+如果要从 Ubuntu 系统中卸载 Anaconda，请删除 Anaconda 安装目录和安装过程中创建的其他文件：
 
 ```shell
 rm -rf ~/anaconda3 ~/.condarc ~/.conda ~/.continuum
 ```
 
-After deleting the folder, you can continue to clean up the Anaconda path in .bashrc:
+删除文件夹后，可以继续清理 .bashrc 中的Anaconda路径：
 
 ```shell
 sudo gedit ~/.bashrc
 ```
 
-At the end of the .bashrc file, use the # sign to comment out the path added before (or delete it directly):
+在.bashrc文件的最后，用#号注释掉之前添加的路径（或者直接删除）：
 
 ```shell
 #export PATH=/home/lq/anaconda3/bin:$PATH
 ```
 
-save and close the file.
+保存并关闭文件。
 
-To make it take effect immediately, execute in the terminal:
+要使其立即生效，请在终端中执行：
 
 ```shell
 source ~/.bashrc
 ```
 
-Close the terminal, and then restart a new terminal, this step is very important, otherwise anaconda3 will still be bound to the original terminal.
+关闭终端，然后重启一个新的终端，这一步很重要，否则 anaconda3 还是会绑定到原来的终端上。
 
-
-## NVIDIA Driver
+<br />
+## NVIDIA驱动
 
 | Software and hardware information |
 |:-------------------:|
 | Operating System：Ubuntu20.04 |
 | Graphics Processor：GeForce RTX 3090 |
 
-According to the graphics card model 3090, go to the [official website](https://www.nvidia.com/Download/index.aspx) to download the corresponding driver. The configuration selected here is as follows, and the version 470.94 is selected.
+根据显卡型号3090, 到 [NVIDIA官方网站](https://www.nvidia.com/Download/index.aspx) 下载相应的驱动程序。 这里选择的配置如下，选择的是470.94版本。
 
 ![photo6]({{site.baseurl}}/assets/img/Ubuntu-linux-server/6.png){:width="70%"}
 
-Find the download link of the corresponding file through the download button.
+通过下载按钮找到对应文件的下载链接。
 
-Since there is no GUI for connecting to the remote server, here is to find it on other computers. After obtaining the URL, use wget to download the file in the remote server.
+由于没有用于连接远程服务器的 GUI，这里是在其他计算机上找到它。 获取 URL 后，使用 wget 下载远程服务器中的文件。
 
 ![photo7]({{site.baseurl}}/assets/img/Ubuntu-linux-server/7.png){:width="70%"}
 
-The link obtained here is as follows [this](https://us.download.nvidia.com/XFree86/Linux-x86_64/470.94/NVIDIA-Linux-x86_64-470.94.run), you can download it using wget
+这里得到的 [链接](https://us.download.nvidia.com/XFree86/Linux-x86_64/470.94/NVIDIA-Linux-x86_64-470.94.run) 如下, 你可以使用 wget 下载它 。
 
 ![photo8]({{site.baseurl}}/assets/img/Ubuntu-linux-server/8.png){:width="70%"}
 
-(Due to the direct configuration on the server side, there is no screenshot)
+（由于服务器端直接配置，所以没有截图）
 
-1 Remove the NVIDIA drivers
+1 卸载NVIDIA驱动
 
 ```shell
 sudo apt-get remove –purge nvidia*
 ```
 
-2 Enter the computer's BIOS and set Security Boot to Disabled
+2 进入计算机的 BIOS 并将 Security Boot 设置为 Disabled
 
-If secure boot is not disabled, it may cause the Nvidia driver to install incorrectly.
+如果没有禁用安全启动，可能会导致 Nvidia 驱动程序安装不正确。
 
-3 Enter the computer's BIOS and set Security Boot to Disabled
+3 进入计算机的 BIOS 并将 Security Boot 设置为 Disabled
 
-In fact, ubuntu uses the open source nouveau driver as the driver for Nvidia graphics processor, which needs to be disabled.
+事实上，ubuntu 使用的是开源的 nouveau 驱动作为 NVIDIA 图形处理器的驱动，需要禁用。
 
-Open the configuration file for editing:
+打开配置文件进行编辑：
 
 ```shell
 sudo vim /etc/modprobe.d/blacklist.conf
 ```
 
-4 Add on the last line:
+4 在最后一行添加：
 
 ```shell
 blacklist nouveau
 ```
 
-This one is used to disable the nouveau driver, and you don't need to change it back later.
+这个是用来禁用 nouveau 驱动的，以后不用改回来。
 
-5 Since nouveau is built in the kernel, execute the following command to take effect:
+5 由于nouveau是内置在内核中的，所以执行如下命令生效：
 
 ```shell
 sudo update-initramfs -u
 ```
 
-6 Reboot
+6 重启
 
 ```shell
 Reboot
 ```
 
-7 After restarting, you can see if nouveau is running:
+7 重启后可以看到nouveau是否在运行：
 
 ```shell
 lsmod | grep nouveau  
 ```
 
-No output indicates that the disable is in effect.
+无输出表示禁用已生效。
 
-8 Add executable permissions to the driver file:
+8 给驱动文件添加可执行权限：
 
 ```shell
 sudo chmod a+x NVIDIA-Linux-x86_64-460.32.03.run
 ```
 
-9 Before running NVIDIA-Driver, you must install compilation environments such as gcc, g++ and make
+9 运行 NVIDIA-Driver 前，必须安装 gcc、g++、make 等编译环境
 
 ```shell
 Sudo apt install gcc
@@ -198,36 +198,37 @@ Sudo apt install g++
 Sudo apt install make
 ```
 
-10 Installation
+10 安装
 
 ```shell
 sudo sh ./NVIDIA-Linux-x86_64-460.32.03.run –no-x-check –no-nouveau-check –no-opengl-files
 ```
 
-Then follow the installation instructions to complete.
+然后按照安装说明完成。
 
-After the installation is complete, restart and use nvidia-smi to verify whether the installation is successful.
+安装完成后重启，使用nvidia-smi验证是否安装成功。
 
 ![photo9]({{site.baseurl}}/assets/img/Ubuntu-linux-server/9.png){:width="70%"}
 
-## CUDA installation
+<br />
+## 安装CUDA
 
-##### installation
-<font color="red">(If you installed NVIDIA-DRIVER first, you can pay attention to whether CUDA is installed. If you enter the command stat cuda under /usr/local to show that CUDA is installed, you can skip the CUDA installation or install multiple versions of CUDA according to the following tutorial. )</font>
+##### 安装
+<font color="red">(如果先安装了NVIDIA-DRIVER，可以注意是否安装了CUDA。 如果在 /usr/local 下输入命令 stat cuda 显示 CUDA 已安装，则可以跳过安装 CUDA 或按照以下教程安装多个版本的 CUDA。)</font>
 
-Before downloading CUDA, you need to match the computing power of your graphics processor. The following figure is the corresponding table of the corresponding computing power graphics processor version and CUDA version. Please check the latest version on the [official website](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html).
+在下载 CUDA 之前，您需要匹配您的图形处理器的计算能力。 下图是对应算力图形处理器版本和CUDA版本的对应表。 请在[官方网站](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html)查看最新版本。
 
 ![photo10]({{site.baseurl}}/assets/img/Ubuntu-linux-server/10.png){:width="70%"}
 
-In order to correspond to the previously configured server, the CUDA version 11.4.0 is selected here.
+为了对应之前配置的服务器，这里选择CUDA 11.4.0版本。
 
-Check the CUDA download link on its [official website](https://developer.nvidia.com/cuda-downloads and choose according to your server configuration) and choose according to your server configuration.
+检查该版本 CUDA 在[官网](https://developer.nvidia.com/cuda-downloads)的下载链接，并且并根据您的服务器配置进行选择。
 
-Here, the installation file of the runfile type is selected so that the installation path of each cuda can be set later.
+这里选择runfile类型的安装文件，以便以后设置各个cuda的安装路径。
 
 ![photo11]({{site.baseurl}}/assets/img/Ubuntu-linux-server/11.png){:width="70%"}
 
-The obtained installation instructions are as follows, enter the corresponding instructions to download CUDA.
+得到的安装指令如下，输入相应的 CUDA 安装指令。
 
 ```shell
 wget https://developer.download.nvidia.com/compute/cuda/11.4.0/local_installers/cuda_11.4.0_470.42.01_linux.run
@@ -235,13 +236,13 @@ wget https://developer.download.nvidia.com/compute/cuda/11.4.0/local_installers/
 
 ![photo12]({{site.baseurl}}/assets/img/Ubuntu-linux-server/12.png){:width="70%"}
 
-Install the relevant dependencies, otherwise an error may be reported, otherwise the `Missing recommended library` error will appear.
+安装相关依赖，否则可能会报错，否则会出现 `缺少相关库` 的错误。
 
 ```shell
 sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa libglu1-mesa-dev
 ```
 
-start running the installation cuda program.
+开始运行安装 cuda 程序。
 
 ```shell
 sudo sh cuda_11.4.0_470.42.01_linux.run
@@ -249,15 +250,15 @@ sudo sh cuda_11.4.0_470.42.01_linux.run
 
 ![photo13]({{site.baseurl}}/assets/img/Ubuntu-linux-server/13.png){:width="70%"}
 
-Accept the above EULA: accept.
+接受上述协议： accept。
 
 ![photo14]({{site.baseurl}}/assets/img/Ubuntu-linux-server/14.png){:width="70%"}
 
-Since the NVIDIA driver has been installed, cancel the driver installation and check the installation.
+由于已经安装了NVIDIA驱动，取消驱动安装，检查安装。
 
 ![photo15]({{site.baseurl}}/assets/img/Ubuntu-linux-server/15.png){:width="70%"}
 
-Since the 10.1 version of CUDA has been installed before, if you need to use a new CUDA version, select Yes, which will point the CUDA soft link to the latest 11.4 version, otherwise just install a CUDA version, and you can reset the soft link yourself later. . After waiting for the installation, it will take a certain amount of time.
+由于之前已经安装了10.1版本的CUDA，如果需要使用新的CUDA版本，选择Yes，会将CUDA软链接指向最新的11.4版本，否则只会安装一个CUDA版本，可以重置软链接，稍后链接自己需要的CUDA版本，等待安装，需要一定的时间。
 
 ![photo16]({{site.baseurl}}/assets/img/Ubuntu-linux-server/16.png){:width="70%"}
 
@@ -271,9 +272,9 @@ Toolkit:  Installed in /usr/local/cuda-11.4/
 Samples:  Installed in /home/rtx-3090/
 ```
 
-The installation is complete when a message like the above appears, but remember to see if there are other warnings in the message.
+出现如上的提示信息即表示安装完成，但记得查看提示信息中是否还有其他警告。
 
-you need to configure CUDA-related environment variables in the end.
+最后需要配置CUDA相关的环境变量。
 
 ```shell
 vim ~/.bashrc
@@ -281,7 +282,7 @@ vim ~/.bashrc
 
 ![photo17]({{site.baseurl}}/assets/img/Ubuntu-linux-server/17.png){:width="70%"}
 
-#Add at the end of the file.
+#在文件末尾添加如下条目。
 
 ```shell
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
@@ -289,44 +290,45 @@ export PATH=$PATH:/usr/local/cuda/bin
 export CUDA_HOME=$CUDA_HOME:/usr/local/cuda
 ```
 
-Note: During the installation process, pay attention to the choice of cuda symbol link (for the first installation, choose y, for additional versions, choose n)
+注意：安装过程中注意cuda符号链接的选择（第一次安装选择y，其他版本选择n）
 
-##### CUDA switch version
-You can use the stat command to see which cuda version the current cuda soft link points to, as follows:
+##### CUDA版本切换
+可以使用stat命令查看当前cuda软链接指向哪个cuda版本，如下：
 
 ![photo18]({{site.baseurl}}/assets/img/Ubuntu-linux-server/18.png){:width="70%"}
 
-It can be seen that the cuda file type is symbolic link, and the directory pointed to is /usr/local/cuda-11.4. When we want to use the cuda-10.1 version, we only need to delete the soft link, and then re-establish the point to cuda-10.1 The soft link of the version is enough (note that the name is still cuda, because it should be consistent with the setting in the bashrc file).
+可以看出cuda文件类型是符号链接，指向的目录是/usr/local/cuda-11.4。 当我们要使用cuda-10.1版本的时候，只需要删除软链接，然后重新建立指向cuda-10.1版本的软链接就足够了（注意名字还是cuda，因为它 应与 bashrc 文件中的设置一致）。
 
 ```shell
 sudo rm -rf cuda
 sudo ln -s /usr/local/cuda-10.1 /usr/local/cuda
 ```
 
-If you want to switch to other versions of cuda, you only need to change the correct path of cuda when creating a soft link.
+如果要切换到其他版本的cuda，只需要在创建软链接时更改cuda的正确路径即可。
 
-## cuDNN installation
-Download cuDNN corresponding to CUDA. Here choose to download version 8.2.4 for CUDA11.4 (requires login and registration before downloading).
+<br />
+## 安装cuDNN
+下载CUDA对应的cuDNN。 这里选择下载CUDA11.4的8.2.4版本（下载前需要登录注册）。
 
 ![photo19]({{site.baseurl}}/assets/img/Ubuntu-linux-server/19.png){:width="70%"}
 
-Since registration is required, use WinSCP to transfer files to the server after downloading directly on other computers.
+由于需要注册，所以直接在其他电脑上下载后使用WinSCP将文件传输到服务器。
 
 ![photo20]({{site.baseurl}}/assets/img/Ubuntu-linux-server/20.png){:width="70%"}
 
-If the archive is not in .tgz format, rename the archive to .tgz format.
+如果存档不是 .tgz 格式，请将存档重命名为 .tgz 格式。
 
 ```shell
 sudo tar -zvxf cudnn-11.4*.tar.gz
 ```
 
-Unzip the current package in .tgz format, the unzipped folder is named cuda, and the folder contains two folders: one is include and the other is lib64.
+将当前包解压为.tgz格式，解压后的文件夹名为cuda，文件夹包含两个文件夹：一个是include，一个是lib64。
 
 ![photo21]({{site.baseurl}}/assets/img/Ubuntu-linux-server/21.png){:width="70%"}
 
-Copy the relevant files to the CUDA path while raising the permissions of the files.
+将相关文件复制到CUDA路径，同时提升文件权限。
 
-Then re-establish the cuda soft link under /usr/local.
+然后在/usr/local下重新建立cuda软链接。
 
 ```shell
 cd /usr/local
@@ -334,7 +336,7 @@ sudo rm -rf cuda
 sudo ln -s cuda-11.1 cuda
 ```
 
-The new version of the method to view cuDNN.
+新版本查看cuDNN的方法。
 
 ```shell
 cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
@@ -342,54 +344,55 @@ cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
 
 ![photo22]({{site.baseurl}}/assets/img/Ubuntu-linux-server/22.png){:width="70%"}
 
-If the above information is displayed, the installation is successful.
+如果显示以上信息，则安装成功。
 
 ![photo23]({{site.baseurl}}/assets/img/Ubuntu-linux-server/23.png){:width="70%"}
 
-It can also be tested in a deep learning environment using torch.cuda.is_available()
+也可以使用 torch.cuda.is_available() 在深度学习环境中进行测试
 
-## other problems
-**Problem: The server ssh is automatically interrupted after a period of time and cannot be connected again. The server must be restarted. The reason is that the server is set to suspend automatically.**
+<br />
+## 其他问题
+**问题：服务器ssh一段时间后自动中断，无法再次连接。 必须重新启动服务器。 原因是服务器设置为自动挂起。**
 
-（Note that this is only applicable to ubuntu server, no graphical interface is required, and no special consideration and verification of the graphical interface is carried out! Readers who rely on the graphical operation interface should use it with caution!）
+（注意这里只适用于ubuntu服务器，不需要图形界面，也不需要对图形界面进行特殊考虑和验证！ 依赖图形操作界面的读者慎用！）
 
-input the command:
+输入命令：
 ```shell
 systemctl status sleep.target
 ```
 
 ![photo24]({{site.baseurl}}/assets/img/Ubuntu-linux-server/24.png){:width="70%"}
 
-Loaded can be found. Indicates that automatic sleep is enabled.
+加载后可以找到。 表示启用了自动休眠。
 
-input the command:
+输入命令：
 ```shell
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 ```
-disable it.
+禁用它。
 
-input the command:
+输入命令：
 ```shell
 systemctl status sleep.target
 ```
 
 ![photo25]({{site.baseurl}}/assets/img/Ubuntu-linux-server/25.png){:width="70%"}
 
-Indicates that the disable was successful.
+表示禁用成功。
 
 <br>
 
-**Problem: Inconsistency between nvcc and stat cuda**
+**问题：nvcc 和 stat cuda 不一致。**
 
-When we use nvcc –version and stat cuda to query separately, the cuda versions displayed by the two are inconsistent, and the cuda versions of nvcc are consistent and unchanged.
+当我们使用nvcc –version和stat cuda分别查询时，两者显示的cuda版本不一致，nvcc的cuda版本一致且不变。
 
-The reason is that nvcc points to the default nvidia-cuda-toolkit location of the system, as shown in the following figure.
+原因是nvcc指向系统默认的nvidia-cuda-toolkit位置，如下图所示。
 
 ![photo26]({{site.baseurl}}/assets/img/Ubuntu-linux-server/26.png){:width="70%"}
 
-So when we use nvcc –version to view the version, it is inconsistent with the version displayed by stat cuda, but it has actually been switched successfully.
+所以当我们使用nvcc –version查看版本时，与stat cuda显示的版本不一致，但实际上已经切换成功。
 
-So we need to change the default cuda-toolkit pointed by nvcc to point to our cuda-toolkit installation location.
+所以我们需要将nvcc指向的默认cuda-toolkit改成指向我们的cuda-toolkit安装位置。
 
 ```shell
 sudo vim /usr/bin/nvcc
@@ -400,10 +403,11 @@ exec /usr/local/cuda/bin/nvcc
 
 ![photo28]({{site.baseurl}}/assets/img/Ubuntu-linux-server/28.png){:width="70%"}
 
-After the modification is completed, the content displayed by the two can be successfully made consistent, and the inconsistency may lead to some unexpected errors.
+修改完成后，可以成功使两者显示的内容一致，不一致可能会导致一些意想不到的错误。
 
-## static ip configuration
-In Ubuntu18.04, the traditional configuration /etc/network/interfaces is useless, the new network configuration file is in: /etc/netplan/50-cloud-init.yaml
+<br />
+## 静态ip配置
+在Ubuntu18.04中，传统配置/etc/network/interfaces没用，新的网络配置文件在：/etc/netplan/50-cloud-init.yaml
 
 ```shell
 sudo vim /etc/netplan/50-cloud-init.yaml
@@ -411,7 +415,7 @@ sudo vim /etc/netplan/50-cloud-init.yaml
 
 ![photo29]({{site.baseurl}}/assets/img/Ubuntu-linux-server/29.png){:width="70%"}
 
-Use vim to edit the file, pay attention to the format, there is a space after the colon.
+使用vim编辑文件，注意格式，冒号后面有个空格。
 
 ```shell
 network:
@@ -433,17 +437,17 @@ network:
     version: 2
 ```
 
-eno2：your current network card name;
+eno2：你当前的网卡名称；
 
-dhcp4：The dhcp switch of the ipv4 interface, false is turned off, true is turned on;
+dhcp4：ipv4接口的dhcp开关，false为关闭，true为开启；
 
-addresses：static IP address/mask;
+地址：静态IP地址/掩码；
 
-gateway4：ipv4 gateway;
+gateway4：ipv4网关；
 
-nameservers：DNS server and comma separated;
+nameservers：DNS服务器，逗号分隔；
 
-After editing, save the configuration file and execute the command to restart the network service to take effect.
+编辑好后保存配置文件，执行命令重启网络服务生效。
 
 ```shell
 sudo netplan apply
@@ -451,28 +455,29 @@ sudo netplan apply
 
 ![photo30]({{site.baseurl}}/assets/img/Ubuntu-linux-server/30.png){:width="70%"}
 
-## References
+<br />
+## 参考资料
 
-Anaconda3 installation [https://cloud.tencent.com/developer/article/1649008](https://cloud.tencent.com/developer/article/1649008)
+Anaconda3 安装 [https://cloud.tencent.com/developer/article/1649008](https://cloud.tencent.com/developer/article/1649008)
 
-Anaconda3 uninstall [https://blog.csdn.net/Rocky6688/article/details/103032620/](https://blog.csdn.net/Rocky6688/article/details/103032620/)
+Anaconda3 卸载 [https://blog.csdn.net/Rocky6688/article/details/103032620/](https://blog.csdn.net/Rocky6688/article/details/103032620/)
 
-NVIDIA driver [https://blog.csdn.net/TracelessLe/article/details/112687973](https://blog.csdn.net/TracelessLe/article/details/112687973)
+英伟达驱动 [https://blog.csdn.net/TracelessLe/article/details/112687973](https://blog.csdn.net/TracelessLe/article/details/112687973)
 
-CUDA and NVIDIA driver version correspondence table [https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html)
+CUDA和NVIDIA驱动版本对应表 [https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html)
 
-CUDA official website [https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads)
+CUDA官方网站 [https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads)
 
 Inconsistency between nvcc –version and stat cuda version [https://www.cnblogs.com/hf19950918/p/14707662.html](https://www.cnblogs.com/hf19950918/p/14707662.html)
 
-NVIDIA cuDNN official website [https://developer.nvidia.com/rdp/cudnn-archive](https://developer.nvidia.com/rdp/cudnn-archive)
+nvcc –version 和 stat cuda 版本不一致 [https://developer.nvidia.com/rdp/cudnn-archive](https://developer.nvidia.com/rdp/cudnn-archive)
 
-cuDNN query method [https://www.pianshen.com/article/72642069842/](https://www.pianshen.com/article/72642069842/)
+cuDNN查询方法  [https://www.pianshen.com/article/72642069842/](https://www.pianshen.com/article/72642069842/)
 
-Solve the problem that the server hangs automatically [https://blog.csdn.net/happywlg123/article/details/121244526](https://blog.csdn.net/happywlg123/article/details/121244526)
+解决服务器自动挂起的问题 [https://blog.csdn.net/happywlg123/article/details/121244526](https://blog.csdn.net/happywlg123/article/details/121244526)
 
-static ip configuration [https://www.cnblogs.com/hkleak/p/12904986.html](https://www.cnblogs.com/hkleak/p/12904986.html)
+静态ip配置  [https://www.cnblogs.com/hkleak/p/12904986.html](https://www.cnblogs.com/hkleak/p/12904986.html)
 
 <br>
 
-**<font color="red" >Disclaimer: The main purpose of this document is to document the configuration process for future reference. The above steps are derived from various attempts, and can only be shown to be applicable to the software and hardware environment I use, and may not be universal. Please judge by yourself whether to refer to and use it, and the resulting risks are at your own risk.</font>**
+**<font color="red" >免责声明：本文档的主要目的是记录配置过程以供将来参考。 以上步骤来源于各种尝试，只能证明适用于我使用的软硬件环境，不一定通用。 请自行判断是否参考和使用，由此产生的风险自负。</font>**
