@@ -1,4 +1,4 @@
-## Template used by artemsheludko2
+## Template used by artemsheludko3
 
 <img src="https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/promo-img.jpg" width="250" height="200" /></br>
 
