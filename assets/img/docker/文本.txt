@@ -1,0 +1,85 @@
+前言
+1docker简介
+Docker 就像一个盒子，里面可以装很多物件，如果需要某些物件，可以直接将该盒子拿走，而不需要从该盒子中一件一件的取。
+Docker中文社区(https://www.docker.org.cn/index.html)、Docker中文文档(https://www.kancloud.cn/jingyucloud/docker/216412)
+
+2Docker 包括三个基本概念
+镜像（Image）
+Docker的镜像概念类似于虚拟机里的镜像(比如.ISO文件)，是一个只读的模板，一个独立的文件系统，包括运行容器所需的数据，可以用来创建新的容器。
+例如：一个镜像可以包含一个完整的 ubuntu 操作系统环境，里面仅安装了MySQL或用户需要的其它应用程序。
+这里的镜像就如下方虚拟机创建时候使用的镜像类似。这个镜像便于移动,并且这个镜像我们可以交给任何人使用,其他人使用的时候也很方便,只需要将其实例化即可。
+[镜像]
+容器（Container）
+Docker容器是由Docker镜像创建的运行实例，类似VM虚拟机，支持启动，停止，删除等。
+每个容器间是相互隔离的，容器中会运行特定的应用，包含特定应用的代码及所需的依赖文件。
+容器就类似与虚拟机中我们创建好的虚拟机系统,之后我们所有的操作都是在容器中进行的,我们的程序也是运行在容器中。
+[容器]
+仓库（Repository）
+镜像便于传播,而仓库就是专门用来传播这些镜像的地方,他有点类似与Github,或者你可以把他看成一个存放各种镜像的镜像商店
+Docker官方的仓库(https://hub.docker.com/): 他的服务器处于国外,所以下载速度较慢,不过我们可以通过换源解决。
+daocloud国内仓库(https://hub.daocloud.io/): 国内也有一些优秀的商店，他和Docker官方的仓库的区别类似与Github和Gitee的区别。
+网易云镜像中心(https://c.163yun.com/hub#/home)
+
+3本文目标
+本问主要会介绍在Windows系统下Docker Desktop的安装,Docker 基础命令,比如说下载镜像、实例化镜像、使用容器、关闭容器、删除容器\镜像、使用仓库、创建镜像等模块的使用。其他系统应该除了安装外其他操作都可以通用。
+
+
+
+
+安装
+1明确安装要求
+[安装要求]
+这里安装机器为win11企业版工作站，在安装上没有什么问题。
+2确认硬件支持情况
+[验证兼容性]
+如果需要查询intel cpu支持情况的请直接上ark，这里安装机器已经开启。
+3安装环境部署
+在主板的bios设置中打开虚拟化支持。
+在设置-应用-程序和功能-启用或关闭windows功能中选中Hyper-V，重启后基本完成安装环境的部署。
+[开启hyper-V]
+4docker-desktop的下载
+我们可以在docker的官网(https://www.docker.com/products/docker-desktop/)下载windows桌面版本的docker软件。
+[docker官网]
+5安装应用
+[安装docker1]
+[安装docker2]
+没有其他什么需要注意的，直接双击安装包一直下一步安装即可。
+[安装成功]
+安装成功后直接点击重启即可。
+6解决运行报错
+重启后如果docker自启动了，就会出现一个docker的Agreement界面，我们点击继续接受协议并继续。
+[dockerAgreement界面]
+我们使用win11系统时，当第一次使用Docker Desktop将无法启动，会出现如下的报错：
+[启动docker报错]
+使用win11后Docker运行报错，主要报错内容是Microsoft.NET Framework无法连接xxx，其实就是无法连接到wsl2。
+根据Docker官方说明，需要升级到最新的wsl2内核和Docker Desktop。
+我们关闭正在运行的所有wsl2终端，以管理员身份运行PowerShell或者命令行工具。
+输入命令行wsl --update用于更新wsl系统，等待出现更新完毕为止。
+[更新wsl]
+[wsl更新成功]
+7启动
+更新完成后，我们重新双击docker Desktop应用，静待软件启动完毕后出现如下界面：
+[dockerDesktop界面]
+同时，我们在cmd命令行中输入docker --version，可以正常查询到docker的版本号，则docker在windows系统上安装完毕。
+[dockerversion]
+
+
+基础使用
+1
+
+
+
+
+
+
+参考链接：
+https://post.smzdm.com/p/a78zvw9l/
+https://blog.csdn.net/chenthe1/article/details/129463675
+https://www.docker.org.cn/index.html
+https://www.kancloud.cn/jingyucloud/docker/216412
+https://hub.docker.com/
+https://hub.daocloud.io/
+https://c.163yun.com/hub#/home
+https://blog.csdn.net/weixin_30782293/article/details/96616836
+https://blog.csdn.net/qq_39611230/article/details/108641842
+https://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html
