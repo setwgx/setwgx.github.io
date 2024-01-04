@@ -3,7 +3,7 @@ layout: post
 title: Overleaf Compile Timed Out
 date: 2024-01-3 22:12:34 +0300
 description: 解决 Overleaf 编译超时问题 # Add post description (optional)
-img: /docker/cover.png # Add image post (optional)
+img: /overleafcompiletimedout/cover.png # Add image post (optional)
 tags: [Overleaf] # add tag
 ---
 
