@@ -11,11 +11,11 @@ tags: [Overleaf] # add tag
 ## Overleaf
 Overleaf是一个在线的LaTex编辑器，相比于安装在本地的编译器更加方便快捷，不需要复杂的配置过程就可以直接在网页上进行LaTex的编写，支持版本控制、共享协助以及编译预览等功能，深受广大科研学者的喜爱。
 
-![overleaf]({{site.baseurl}}/assets/img/overleafcompiletimedout/overleaf.png)
+![overleaf]({{site.baseurl}}/assets/img/overleafcompiletimedout/overleaf.png){:width="70%"}
 
 一般用户都具有一个Free Plan的版本，只具有符合需求的最基本功能，通常这个免费的版本可以符合大多数人的要求，但是也具有一些限制，比如只能有1人的协助人数，编译速度一般等，如果想要享受更多功能和特权则需要开通更高级的版本。
 
-![upgrade]({{site.baseurl}}/assets/img/overleafcompiletimedout/upgrade.png)
+![upgrade]({{site.baseurl}}/assets/img/overleafcompiletimedout/upgrade.png){:width="70%"}
 
 Overleaf官网提供的个人付费版本包括259美元的标准版以及519美元的专业版，这对于一般用户来说是非常昂贵的。
 
@@ -24,7 +24,7 @@ Overleaf官网提供的个人付费版本包括259美元的标准版以及519美
 ## 问题描述
 最近在使用Overleaf进行科研论文写作的尝试，前面使用的时候一切正常，直到后面在实验部分添加了过多的图片，导致编译的过程中出现了以下的问题。
 
-![error]({{site.baseurl}}/assets/img/overleafcompiletimedout/error.png)
+![error]({{site.baseurl}}/assets/img/overleafcompiletimedout/error.png){:width="70%"}
 
 ### 尝试方法一：删除其他文件（失败）
 由于我个人的项目中有三篇文件，因此我起初以为是文件数量超出了限制，导致无法进行编译，因此我删除了其他的文件，并没有因此解决问题。
@@ -47,15 +47,15 @@ Overleaf官网提供的个人付费版本包括259美元的标准版以及519美
 ### 尝试方法三：降低编译质量
 定位问题在实验部分的图片上，由于之前使用的实验效果图使用的都是JPG或者是PNG格式的，占用资源较少。为了提高科研论文写作内容的质量，我使用了eps的图片格式，这类格式能同时包含矢量和点阵信息，还能包含文字，因此占用的资源较大。
 
-![files]({{site.baseurl}}/assets/img/overleafcompiletimedout/files.png)
+![files]({{site.baseurl}}/assets/img/overleafcompiletimedout/files.png){:width="70%"}
 
 这是两个不同文件的对比。
 
 因此，为了能够正常的完成这项工作，我选择将所有的eps图片还原成原来的PNG图片。
 
-![before_eps]({{site.baseurl}}/assets/img/overleafcompiletimedout/before_eps.png)
+![before_eps]({{site.baseurl}}/assets/img/overleafcompiletimedout/before_eps.png){:width="70%"}
 
-![after_jpg]({{site.baseurl}}/assets/img/overleafcompiletimedout/after_jpg.png)
+![after_jpg]({{site.baseurl}}/assets/img/overleafcompiletimedout/after_jpg.png){:width="70%"}
 
 至此，问题解决。
 
