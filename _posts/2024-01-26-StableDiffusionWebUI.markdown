@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Stable Diffusion WebUI
-date: 2024-01-26 11:51:19 +0300
+date: 2024-01-25 11:51:19 +0300
 description: 在 Windows 本地部署 Stable Diffusion WebUI # Add post description (optional)
 img: /stablediffusionwebui/cover.png # Add image post (optional)
 tags: [Stable Diffusion WebUI, AI, Application, Windows] # add tag
