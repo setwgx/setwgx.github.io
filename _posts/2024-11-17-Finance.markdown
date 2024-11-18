@@ -3,7 +3,7 @@ layout: post
 title: Finance
 date: 2024-11-17 20:18:48 +0300
 description: 一些感想 # Add post description (optional)
-img:  # Add image post (optional)
+img:  /cover0.png# Add image post (optional)
 tags: [Nothing] # add tag
 ---
 
