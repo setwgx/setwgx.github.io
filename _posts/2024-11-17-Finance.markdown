@@ -1,0 +1,10 @@
+---
+layout: post
+title: Finance
+date: 2024-11-17 20:18:48 +0300
+description: 一些感想 # Add post description (optional)
+img:  # Add image post (optional)
+tags: [Nothing] # add tag
+---
+
+没有找到技术相关的工作，也失去了学习技术的激情，主业无法实现我的梦想，学金融搞副业去咯。
