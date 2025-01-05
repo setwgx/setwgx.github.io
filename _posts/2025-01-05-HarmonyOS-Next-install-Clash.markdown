@@ -41,8 +41,6 @@ Auto installer(小白鸿蒙开源自助餐) 是一款在Harmony Next安装hap应
 
 使用和Clash for Android方法一致，但目前该方法仍然为半成品，使用上体验不好，且必须持续开启开发者模式才行。
 
-
-
 <br />
 
 ## 参考资料
