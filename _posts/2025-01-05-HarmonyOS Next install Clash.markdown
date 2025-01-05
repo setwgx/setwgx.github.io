@@ -3,7 +3,7 @@ layout: post
 title: HarmonyOS Next install Clash
 date: 2024-01-5 22:25:16 +0300
 description: Install Clash for HarmonyOS Next # Add post description (optional)
-img: /HarmonyOS_Next_Clash/cover.png # Add image post (optional)
+img: /HarmonyOSNextclash/cover.png # Add image post (optional)
 tags: [HarmonyOS Next, Clash, HUAWEI] # add tag
 ---
 
