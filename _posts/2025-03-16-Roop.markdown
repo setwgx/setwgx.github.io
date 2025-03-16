@@ -1,0 +1,71 @@
+---
+layout: post
+title: Roop
+date: 2025-03-16 14:17:34 +0300
+description: Roop # Add post description (optional)
+img: /Roop/cover.png # Add image post (optional)
+tags: [Roop, AI, Windows] # add tag
+---
+
+<!-- ![stable_diffusion]({{site.baseurl}}/assets/img/stablediffusiondeploy/00stable_diffusion2.png){:width="70%"} -->
+
+# 前言 
+Roop本地化部署。
+
+# 安装教程
+
+## 基本环境及软件版本
+- Python 3.10(recommended)
+- Anaconda3
+- ffmpeg
+- visual studio 2022 runtimes (windows)
+
+## 安装visual studio
+在MS的官网可以直接下载，[网站](https://caovan.com/go?_=13bf099e99aHR0cHM6Ly9wYW4ucXVhcmsuY24vcy84ODhiZDg0YTc4YzA%3D)。
+
+![vs]({{site.baseurl}}/assets/img/Roop/visual Studio.jpg.png){:width="70%"}  
+
+下载的是windows的可执行文件，直接安装，选择【使用c++的桌面开发】的选项，耐心等待安装即可。大约需要7G的空间。
+
+安装完成后请重启电脑。
+
+## 下载代码
+在github的网站[roop](https://github.com/s0md3v/roop)上直接下载代码即可。 
+
+有git工具的也可以直接clone仓库。
+
+## 安装流程
+刚开始安装时缺少很多环境和软件，导致安装流程十分复杂。完成必要的环境安装后其实流程很简单。
+
+首先在Anaconda中新建一个虚拟环境，这里建议使用Python 3.10版本。
+
+![Anaconda3]({{site.baseurl}}/assets/img/Roop/anaconda3.png){:width="70%"}
+
+我的电脑是CUDA12.6，由于命令行下载很慢，于是我在资源网上下载了torch2.0.1+cu118和torchvision0.15.2+cu118两个版本，并本地安装。
+
+![torch]({{site.baseurl}}/assets/img/Roop/torch.png){:width="50%"}
+
+然后安装Roop需要的环境即可。
+
+![requirements]({{site.baseurl}}/assets/img/Roop/requirements.png){:width="70%"}
+
+安装过程中如果出现这个报错，ERROR: No matching distribution found for tb-nightly。
+
+只要使用该命令pip install -i https://mirrors.aliyun.com/pypi/simple/ tb-nightly安装，然后重新运行安装需求环境的指令。
+
+![successful]({{site.baseurl}}/assets/img/Roop/successful.png){:width="70%"}
+
+如果出现下载慢或者连接超时的情况，注意科学上网。安装结果没有报错，即完成。
+
+## 使用方法
+使用python run.py运行指令，就可以正常使用。
+
+该仓库具有UI界面，方法不再赘述。在使用过程中如果卡住，可以看看命令行，会显示连接超时，这主要是因为使用过程中会自动去下载一些文件，需要科学上网。
+
+
+<br />
+
+## 参考资料
+[Roop windows本地搭建教程](https://caovan.com/roopyijianhuanlianwindowsbendedajianjiaocheng/.html)
+
+[Roop安装教程](https://blog.csdn.net/knowledgetreeai/article/details/132004903)
