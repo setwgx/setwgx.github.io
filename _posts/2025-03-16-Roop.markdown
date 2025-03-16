@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Roop
-date: 2025-03-16 14:17:34 +0300
+date: 2025-03-16 12:17:34 +0300
 description: Roop # Add post description (optional)
 img: /Roop/cover.png # Add image post (optional)
 tags: [Roop, AI, Windows] # add tag
