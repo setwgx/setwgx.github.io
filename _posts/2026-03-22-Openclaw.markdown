@@ -88,7 +88,7 @@ openclaw configure
 
 进入向导，选择本地模型，选择 minimax 模型。
 
-### 2. 填写 minimax信息
+### 2. 填写 minimax 信息
 
 |配置项|填写内容|说明|
 | :----- | :----- | :----- |
@@ -109,15 +109,18 @@ openclaw configure
 
 ![png2]({{site.baseurl}}/assets/img/openclaw/openclaw_webui.png){:width="70%"}  
 
-## 第四步：配置QQ
+## 第四步：配置 QQ 机器人
 
 进入QQ开放平台，扫码登录，按照提示，将下面的配置信息在UBUNTU系统中进行配置，等待运行完成即配置成功。
 
 ![png3]({{site.baseurl}}/assets/img/openclaw/qq开放平台.png){:width="70%"} 
 
-![png4]({{site.baseurl}}/assets/img/openclaw/qq使用效果.png){:width="70%"} 
+在 QQ 里面进行测试，可以正常进行问答回复。
+
+![png4]({{site.baseurl}}/assets/img/openclaw/qq使用效果.png){:width="50%"} 
 
 ## 参考资料
+
 [OPENCLAW安装教程](https://jishubiji.com/p/771)
 
 [DEEPSEEK](https://chat.deepseek.com/)
