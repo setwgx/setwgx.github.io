@@ -89,13 +89,14 @@ openclaw configure
 进入向导，选择本地模型，选择 minimax 模型。
 
 ### 2. 填写 minimax信息
+
 |配置项|填写内容|说明|
 | :----- | :----- | :----- |
-|API 网址| Base UR | 上面模型选择minimax后会自动生成|
-|API key 输入方式|Paste API key now|手动粘贴 API Key|
-|API key|your-minimax-api-key|从 minimax 开放平台 获取|
-|兼容性	|OpenAI-compatible|选择 OpenAI 兼容模式|
-|模型 ID|minimax-chat|minimax的模型标识|
+|API 网址 | Base UR | 上面模型选择minimax后会自动生成 |
+|API key 输入方式 | Paste API key now | 手动粘贴 API Key |
+|API key | your-minimax-api-key | 从 minimax 开放平台 获取 |
+|兼容性	| OpenAI-compatible | 选择 OpenAI 兼容模式 |
+|模型 ID | minimax-chat | minimax的模型标识 |
 ||||
 
 ![png1]({{site.baseurl}}/assets/img/openclaw/minimax.png){:width="70%"}  
