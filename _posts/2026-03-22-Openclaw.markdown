@@ -1,0 +1,122 @@
+---
+layout: post
+title: OpenClaw
+date: 2026-03-22 10:30:00 +0800
+description: 在 Ubuntu 系统中安装 OpenClaw 并接入 minimax 大模型， 接入 QQ 成为我的个人助理  # 添加描述
+img: /openclaw/cover.png # 添加封面图
+tags: [Ubuntu, OpenClaw, minimax, QQ] # 标签
+---
+
+# 前言
+
+OpenClaw 是一个开源的大模型交互框架，支持接入多种大模型（如 DeepSeek、OpenAI 等），并提供 Web UI、频道接入等能力。本文记录在 **Ubuntu 24.04** 系统中安装 OpenClaw 并配置 DeepSeek 模型的全过程，方便日后回顾。
+
+# 安装教程
+
+## 基本环境要求
+- 操作系统：Ubuntu 24.04 (或 22.04)
+- 内存：建议 4GB 以上
+- 网络：能够正常访问 GitHub 及 DeepSeek API
+
+## 第一步：配置基础环境
+
+OpenClaw 的安装脚本依赖 `curl`，我们需要先确保它已安装。
+
+### 1. 更新包列表
+打开终端，执行以下命令更新软件源：
+
+```bash
+sudo apt update
+```
+
+### 2. 安装 curl
+
+```bash
+sudo apt install curl -y
+```
+
+### 3. 验证安装
+
+```bash
+curl --version
+```
+
+如果显示版本信息，说明 curl 已成功安装。
+
+![png5]({{site.baseurl}}/assets/img/openclaw/curl.png){:width="70%"} 
+
+## 第二步：安装 OpenClaw
+
+运行官方提供的快速安装脚本，整个过程可能耗时 20 分钟左右（取决于网络状况），请耐心等待。
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+![png6]({{site.baseurl}}/assets/img/openclaw/quickstart.png){:width="70%"} 
+
+注意：进入配置向导后 不要按 Esc，否则会退出向导。如果不慎退出，可重新运行 `openclaw onboard` 命令进入向导。
+
+安装过程中的向导选择， 安装脚本执行完毕后会自动进入配置向导，以下是我的选择步骤：
+
+|步骤|选项|说明|
+| :----- | :----- | :----- |
+|风险提示|Yes|确认继续安装|
+|向导模式|QuickStart|选择快速模式|
+|大模型选择|Skip for now|先跳过，后续单独配置 minimax|
+|按服务商筛选|任意选择一个（如 OpenAI）|后续会覆盖配置，无影响|
+|频道选择|Skip for now|暂时不接入飞书等频道|
+|搜索服务商|Skip for now|暂不配置搜索|
+|设置 skills	|No	|暂不启用 skills|
+|启用 hook|Skip for now|暂不启用 hook|
+|penClaw 打开方式|Open the Web UI|通过网页界面使用|
+||||
+
+完成上述选择后，系统会自动打开浏览器，进入 OpenClaw 的 Web UI 界面。
+
+![png7]({{site.baseurl}}/assets/img/openclaw/openclaw_webui0.png){:width="70%"} 
+
+## 第三步：配置minimax
+
+购买 minimax 的 coding plan 套餐，使用会更加划算。
+
+### 1. 进入配置向导
+
+```bash
+openclaw configure
+```
+
+进入向导，选择本地模型，选择 minimax 模型。
+
+### 2. 填写 minimax信息
+|配置项|填写内容|说明|
+| :----- | :----- | :----- |
+|API 网址| Base UR | 上面模型选择minimax后会自动生成|
+|API key 输入方式|Paste API key now|手动粘贴 API Key|
+|API key|your-minimax-api-key|从 minimax 开放平台 获取|
+|兼容性	|OpenAI-compatible|选择 OpenAI 兼容模式|
+|模型 ID|minimax-chat|minimax的模型标识|
+||||
+
+![png1]({{site.baseurl}}/assets/img/openclaw/minimax.png){:width="70%"}  
+
+填写完成后，按 Esc 退出配置界面。
+
+### 3. 验证配置信息
+
+重新打开 Web UI（默认地址为 http://localhost:18789），在对话界面选择刚才配置的模型，发送消息测试是否正常响应。
+
+![png2]({{site.baseurl}}/assets/img/openclaw/openclaw_webui.png){:width="70%"}  
+
+## 第四步：配置QQ
+
+进入QQ开放平台，扫码登录，按照提示，将下面的配置信息在UBUNTU系统中进行配置，等待运行完成即配置成功。
+
+![png3]({{site.baseurl}}/assets/img/openclaw/qq开放平台.png){:width="70%"} 
+
+![png4]({{site.baseurl}}/assets/img/openclaw/qq使用效果.png){:width="70%"} 
+
+## 参考资料
+[OPENCLAW安装教程](https://jishubiji.com/p/771)
+
+[DEEPSEEK](https://chat.deepseek.com/)
